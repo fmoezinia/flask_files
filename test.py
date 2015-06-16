@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
 def test():
- 	return 'hello ricky test'
+ 	return 'hello ricky test with sms'
 	print request.form
 	resp = twilio.twiml.Response()
 	resp.message("Hello, Mobile Monkey")
