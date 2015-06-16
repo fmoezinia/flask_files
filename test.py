@@ -10,7 +10,7 @@ def test():
 	print request.form
 	resp = twilio.twiml.Response()
 	#resp.message("Hello, Mobile Monkey")
-	resp.say("Hello, Mobile Monkey")
+	resp.say("Hello, Mobile Monkey. this is a test. if you are hearing this, then the configuration has worked.")
 	return str(resp)
 
 if __name__ == "__main__":
