@@ -11,9 +11,13 @@ def hello_monkey():
 	resp.message("Hello, Mobile Monkey")
 	return str(resp)
   
-@app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
+#@app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
+#def test():
+# 	return 'hello world' 
+
+@app.route("/", methods=['GET', 'POST'])
 def test():
- 	return 'hello world'
+ 	return 'hello world' 	
  
 
 if __name__ == "__main__":
