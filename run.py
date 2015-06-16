@@ -11,11 +11,11 @@ def hello_monkey():
 	resp.message("Hello, Mobile Monkey")
 	return str(resp)
   
-@app.route("/test", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def test():
  	return 'hello world'
  
 
 if __name__ == "__main__":
-	#debug=True
-    app.run(host = '0.0.0.0')
+	app.run(debug=True)
+    #app.run(host = '0.0.0.0')

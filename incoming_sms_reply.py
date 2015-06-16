@@ -5,14 +5,11 @@ app = Flask(__name__)
  
 # Try adding your own number to this list!
 callers = {
-    "+17186121018": "Curious Ricky",
-    "+14158675310": "Boots",
-    "+14158675311": "Virgil",
+    "+17186121018": "Curious Ricky"
 }
  
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
 def hello_monkey():
-    """Respond and greet the caller by name."""
  
     from_number = request.values.get('From', None)
     if from_number in callers:
