@@ -9,9 +9,9 @@ def test():
  	return 'hello ricky test with sms'
 	print request.form
 	resp = twilio.twiml.Response()
-	resp.message("Hello, Mobile Monkey")
+	#resp.message("Hello, Mobile Monkey")
+	resp.say("Hello, Mobile Monkey")
 	return str(resp)
 
 if __name__ == "__main__":
-	#app.run(debug=True)
-    app.run(host = '0.0.0.0', port=80)
+    app.run(debug = True, port=80, host = '0.0.0.0')
