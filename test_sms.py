@@ -8,4 +8,4 @@ client = TwilioRestClient(account_sid, auth_token)
 message = client.messages.create(body="This is a US based phone number. It solely is used by the RCM in order to communicate with clients. If you would like us to cease communication with you, and resume with Fredric, please indicate to us a US based numnber for him. Sorry for the incovenience. ",
     to="+447760341444",    # Replace with your phone number
     from_="+16507279462") # Replace with your Twilio number
-print message.sid
+#print message.sid
