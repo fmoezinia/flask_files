@@ -8,11 +8,10 @@ app = Flask(__name__)
 def test():
 	print request.form
 	resp = twilio.twiml.Response()
-	resp.message("Hello, Mobile Monkey. this is a test. if you are seeing this, then the configuration has worked.")
-	#resp.say("Hello, Mobile Monkey. this is a test. if you are hearing this, then the configuration has worked.")
+	#resp.message("Hello, Mobile Monkey. this is a test. if you are seeing this, then the configuration has worked.")
+	resp.say("Hello, Mobile Monkey. this is a test. if you are hearing this, then the configuration has worked.")
 	return str(resp)
 	print resp
- 	return 'hello ricky test with sms, testing sms then phone'
 
 
 if __name__ == "__main__":

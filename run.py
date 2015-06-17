@@ -8,12 +8,12 @@ def hello_monkey():
 	#"""Respond to incoming calls with a simple text message."""
 	print request.form
 	resp = twilio.twiml.Response()
-	resp.message("Hello, Mobile Monkey")
+	resp.say("Hello, Mobile Monkey. this is a test. if you are hearing this, then the configuration has worked.")
 	return str(resp)
   
-#@app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
-#def test():
-# 	return 'hello world' 
+@app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
+def test():
+ 	return 'hello world' 
 
 @app.route("/", methods=['GET', 'POST'])
 def test():
