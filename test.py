@@ -6,11 +6,11 @@ app = Flask(__name__)
 
 @app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
 def test():
- 	return 'hello ricky test with sms'
+ 	return 'hello ricky test with sms, testing sms then phone'
 	print request.form
 	resp = twilio.twiml.Response()
-	#resp.message("Hello, Mobile Monkey")
-	resp.say("Hello, Mobile Monkey. this is a test. if you are hearing this, then the configuration has worked.")
+	resp.message("Hello, Mobile Monkey. this is a test. if you are seeing this, then the configuration has worked.")
+	#resp.say("Hello, Mobile Monkey. this is a test. if you are hearing this, then the configuration has worked.")
 	return str(resp)
 
 if __name__ == "__main__":
