@@ -23,4 +23,4 @@ def hello_monkey():
     return str(resp)
  #change
 if __name__ == "__main__":
-    app.run(host = '0.0.0.0', port=80,debug=True)
+    app.run(debug = True, port=80, host = '0.0.0.0')
