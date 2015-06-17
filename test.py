@@ -11,6 +11,7 @@ def test():
 	resp.message("Hello, Mobile Monkey. this is a test. if you are seeing this, then the configuration has worked.")
 	#resp.say("Hello, Mobile Monkey. this is a test. if you are hearing this, then the configuration has worked.")
 	#return str(resp)
+	print resp
  	return 'hello ricky test with sms, testing sms then phone'
 
 
