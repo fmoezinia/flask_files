@@ -7,13 +7,12 @@ import twilio.twiml
 app = Flask(__name__)
 
 
-@app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def test():
 
 
 	print request.form
 	#prints message body
-	print 'message below'
 	print request.form['body']
 
 	resp = twilio.twiml.Response()
@@ -25,4 +24,4 @@ def test():
 
 
 if __name__ == "__main__":
-    app.run(debug = True, port=80, host = '0.0.0.0')
+    app.run(debug = True)

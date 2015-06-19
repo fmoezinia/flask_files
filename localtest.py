@@ -7,9 +7,7 @@ app = Flask(__name__)
 def hello_monkey():
     #"""Respond to incoming calls with a simple text message."""
  
-    resp = twilio.twiml.Response()
-    resp.message("Hello, Mobile Monkey")
-    return str(resp)
+    return 'hello'
  
 if __name__ == "__main__":
-    app.run(debug=True, port=80)
+    app.run(debug=True)
