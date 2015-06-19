@@ -1,6 +1,7 @@
 
 import requests
 import product_search
+from amazon.api import AmazonAPI
 #python request http request
 #to https://api.zinc.io/v0/order
 #curl https://api.zinc.io/v0/order -d
