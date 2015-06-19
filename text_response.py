@@ -12,17 +12,16 @@ def test():
 
 
 	print request.form
-	#prints message body
-	print 'message below'
-	#print request.form['body']
-	print "message above"
+	
+	message_body = request.form['body']
+
 
 	resp = twilio.twiml.Response()
 	resp.message("Hello, we got your text")
+#this prints response on web server darkside	
 	return str(resp)
 
-	#this prints response on web server darkside
-	print resp
+	
 
 
 if __name__ == "__main__":
