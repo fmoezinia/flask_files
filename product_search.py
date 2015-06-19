@@ -1,5 +1,6 @@
-import text_response
-#this is where we get the product keyword from (text_response.message_body) = product
+
+#this is where we get the product keyword from (text_response.message_body) = entire message body - how to parse to find product. (message body is currently
+	# of type unicode..)
 
 from amazon.api import AmazonAPI
 #insert amazon web services credentials
@@ -44,17 +45,17 @@ class Item(object):
 		return found_product_price
 
 
-product = 'uramium'
-customer_product = Item('arsenal shirt 2016')
+#product = 'uramium'
+#customer_product = Item('uranium')
+#customer_product = Item(product)
 
 product_name = customer_product.prod_item()
-print product_name
+#print product_name
 product_asin = customer_product.prod_asin()
-print product_asin
-
+#print product_asin
 
 product_price_and_currency = customer_product.prod_price()
-print product_price_and_currency
+#print product_price_and_currency
 
 	
 
