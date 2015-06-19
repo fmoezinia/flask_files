@@ -15,6 +15,7 @@ def test():
 	#prints message body
 	print 'message below'
 	print request.form['body']
+	print "message above"
 
 	resp = twilio.twiml.Response()
 	resp.message("Hello, we got your text")
