@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 
 @app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
-def test():
+def reply():
 
 
 	print request.form
@@ -16,9 +16,9 @@ def test():
 	message_body = request.form['Body']
 
 	resp = twilio.twiml.Response()
-	resp.message('Hello, we got your text: it said' + str(message_body))
+	resp.message('Hello, we got your text: it said ' + str(message_body))
 	#this prints response on web server darkside	
-	return str(resp)
+	return str('this should post to web app')
 
 	
 
