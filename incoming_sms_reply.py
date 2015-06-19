@@ -1,3 +1,5 @@
+# this script replies to texts
+#
 from flask import Flask, request, redirect
 import twilio.twiml
  

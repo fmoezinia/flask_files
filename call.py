@@ -1,3 +1,5 @@
+#this script has an automated voice to respond to callers
+
 from flask import Flask, request, redirect
 import twilio.twiml
  
