@@ -1,5 +1,6 @@
 # this script replies to texts
-#
+# ssh zincadm@104.236.14.203 -p 3192    this is my darkside server with flask web app
+
 from flask import Flask, request, redirect
 import twilio.twiml
  
@@ -8,6 +9,7 @@ app = Flask(__name__)
 # Try adding your own number to this list!
 callers = {
     "+17186121018": "Curious Ricky"
+    "+15107980598" : "Monsieur Wu"
 }
  
 @app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
