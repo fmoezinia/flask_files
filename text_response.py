@@ -30,7 +30,7 @@ def reply():
 	message_body = message_body.encode("utf-8", "ignore")
 	
 
-	if state = 'suggestion':
+	if state == 'suggestion':
 
 	#print message_body
 		item = Item(message_body)
@@ -51,14 +51,14 @@ def reply():
 	#TEXT THEM A LINK TO FLASK WEB APP, DIFFERENT ENDPOINT ENTER CREDIT CARD
 		
 		
-	elif state = 'purchase':
+	elif state == 'purchase':
 		#buy product
 		state = 'confirmation'
 		#import request_amazon. call function where asin = item.prod_asin
 		request_amazon.buy(asin)
 		asin = None
 
-	elif state = 'confirmation':
+	elif state == 'confirmation':
 		#did all go well?
 		test_sms.send(client)
 		client = None
