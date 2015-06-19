@@ -1,4 +1,4 @@
-#this script responds to texts
+#this script responds to texts, and takes message body (prints to webpage)
 
 
 from flask import Flask, request, redirect
@@ -9,10 +9,17 @@ app = Flask(__name__)
 
 @app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
 def test():
+
+
 	print request.form
+	#prints message body
+	print request.form['body']
+
 	resp = twilio.twiml.Response()
-	resp.message("Hello, Mobile Monkey. this is a test. if you are seeing this, then the configuration has worked.")
+	resp.message("Hello, we got your text")
 	return str(resp)
+
+	#this prints response on web server darkside
 	print resp
 
 
