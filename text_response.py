@@ -14,7 +14,7 @@ def test():
 	print request.form
 	#prints message body
 	print 'message below'
-	print request.form['body']
+	#print request.form['body']
 	print "message above"
 
 	resp = twilio.twiml.Response()
