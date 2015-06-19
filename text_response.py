@@ -11,15 +11,16 @@ app = Flask(__name__)
 def reply():
 
 
-	print request.form
+	#print request.form
 	
 	message_body = request.form['Body']
-	print message_body
+	#print message_body
 
 	resp = twilio.twiml.Response()
 	resp.message('Hello, we got your text')
 	#this return statement is needed to send response text - and also returns on web app
 	return str(resp)
+
 
 	
 
