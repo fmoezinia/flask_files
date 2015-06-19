@@ -13,12 +13,12 @@ def test():
 
 	print request.form
 	
-	message_body = request.form['body']
+	message_body = request.form['Body']
 
 
 	resp = twilio.twiml.Response()
 	resp.message("Hello, we got your text")
-#this prints response on web server darkside	
+	#this prints response on web server darkside	
 	return str(resp)
 
 	
