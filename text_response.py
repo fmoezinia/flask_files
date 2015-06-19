@@ -19,7 +19,7 @@ def reply():
 	resp = twilio.twiml.Response()
 	resp.message('Hello, we got your text')
 	#this return statement is needed to send response text - and also returns on web app
-	return str(response)
+	return str(resp)
 
 	
 
