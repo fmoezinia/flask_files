@@ -18,7 +18,7 @@ def reply():
 	resp = twilio.twiml.Response()
 	resp.message('Hello, we got your text: it said ' + str(message_body))
 	#this prints response on web server darkside	
-	return str('this should post to web app')
+	return str(resp)
 
 	
 
