@@ -14,11 +14,12 @@ def reply():
 	print request.form
 	
 	message_body = request.form['Body']
+	print message_body
 
 	resp = twilio.twiml.Response()
-	resp.message('Hello, we got your text: it said ' + str(message_body))
-	#this prints response on web server darkside	
-	return str(resp)
+	resp.message('Hello, we got your text')
+	#this return statement is needed to send response text - and also returns on web app
+	return str(response)
 
 	
 
