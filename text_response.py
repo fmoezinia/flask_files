@@ -27,11 +27,14 @@ def reply():
 	message_body = request.form['Body']
 	#CHANGE MESSAGE BODY INTO STRING....!!!
 	message_body = message_body.encode("utf-8", "ignore")
+	client = request.form['From']
+	client = client.encode("utf-8", "ignore")
 
 	global state
 	global asin
 	global client
 	global result
+	global message_body
 
 	print 'blah 1'
 	if state == 'suggestion':
@@ -44,9 +47,7 @@ def reply():
 		resp.message(txtresp)
 		asin = item.prod_asin()
 		state = 'purchase'
-		client = request.form['From']
-		#CHANGE client !!! BODY INTO STRING....!!!
-		client = client.encode("utf-8", "ignore")
+		
 		#this return statement is needed to send response text - and also returns on web app
 		return str(resp)
 	
@@ -67,10 +68,8 @@ def reply():
 			print 'blah 6'
 			state = 'suggestion'
 			result = 'We are sorry that you do not want to purchase this item. Please search for a different product!'
-			print client
-			print result
-			print type(client)
-			print type(result)
+
+
 			test_sms.send(client,result)
 			client = None
 			result = None
