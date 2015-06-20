@@ -36,7 +36,7 @@ def reply():
 	#print message_body
 		item = Item(message_body)
 
-		txtresp = "We found this product : {0} at: {2}{1} (and image). Respond 'yes' if you would like to purchase this item".format(item.prod_item(), item.prod_price()[0], item.prod_price()[1])
+		txtresp = "We found this product : {0}. The price will be: {2} {1} (Can add image later). Respond 'yes' or 'Yes' if you would like to purchase this item".format(item.prod_item(), item.prod_price()[0], item.prod_price()[1])
 		resp = twilio.twiml.Response()
 		resp.message(txtresp)
 		asin = item.prod_asin()
