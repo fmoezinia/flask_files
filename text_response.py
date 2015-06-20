@@ -22,19 +22,18 @@ result = None
 @app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
 def reply():
 
-	#print request.form
 	
-	message_body = request.form['Body']
-	#CHANGE MESSAGE BODY INTO STRING....!!!
-	message_body = message_body.encode("utf-8", "ignore")
-	client = request.form['From']
-	client = client.encode("utf-8", "ignore")
-
 	global state
 	global asin
 	global client
 	global result
 	global message_body
+
+#unicode to string
+	message_body = request.form['Body']
+	message_body = message_body.encode("utf-8", "ignore")
+	client = request.form['From']
+	client = client.encode("utf-8", "ignore")
 
 	print 'blah 1'
 	if state == 'suggestion':
