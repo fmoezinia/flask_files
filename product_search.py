@@ -49,12 +49,12 @@ class Item(object):
 #customer_product = Item('uranium')
 #customer_product = Item(product)
 
-product_name = customer_product.prod_item()
+#product_name = customer_product.prod_item()
 #print product_name
-product_asin = customer_product.prod_asin()
+#product_asin = customer_product.prod_asin()
 #print product_asin
 
-product_price_and_currency = customer_product.prod_price()
+#product_price_and_currency = customer_product.prod_price()
 #print product_price_and_currency
 
 	
