@@ -20,6 +20,7 @@ def buy(asin):
 		print (post_api_request.text)
 	else:
 		print post_api_request.raise_for_status()
+		print 'blah'
 		raise Exception ('Order not sent through')
 
 
