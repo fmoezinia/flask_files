@@ -26,7 +26,6 @@ def buy(asin):
 
 
 
-
 # #   r.status_code  == 404 is bad, raise excpetion etc, None = all is well  TRY EXCPET, RAISE
 # #response 200 if ok
 # #If we made a bad request (a 4XX client error or 5XX server error response), we can raise it with Response.raise_for_status():

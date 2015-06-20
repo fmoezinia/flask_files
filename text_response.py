@@ -40,6 +40,8 @@ def reply():
 		resp = twilio.twiml.Response()
 		resp.message(txtresp)
 		asin = item.prod_asin()
+		print asin
+		print type(asin)
 		state = 'purchase'
 		client = request.form['From']
 		#CHANGE client !!! BODY INTO STRING....!!!
