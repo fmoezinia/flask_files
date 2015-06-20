@@ -22,7 +22,7 @@ def buy(asin):
 		print post_api_request.raise_for_status()
 		raise Exception("Order not processed")
 
-buy('B005X1Y7I2')
+
 
 
 # #   r.status_code  == 404 is bad, raise excpetion etc, None = all is well  TRY EXCPET, RAISE
