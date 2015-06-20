@@ -60,6 +60,8 @@ def reply():
 			#buy product
 			print 'blah 3'
 			state = 'confirmation'
+			print asin
+			print type(asin)
 			request_amazon.buy(asin)
 			asin = None
 			result = 'Your order has been processed and is on its way!'
