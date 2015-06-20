@@ -36,7 +36,7 @@ def reply():
 	#print message_body
 		item = Item(message_body)
 
-		txtresp = "We found this title {0} with this price {1} (and image), respond yes if that is ok".format(item.prod_item, item.prod_price)
+		txtresp = "We found this title {0} with this price {1} (and image), respond yes if that is ok".format(str(item.prod_item), item.prod_price)
 		resp = twilio.twiml.Response()
 		resp.message(txtresp)
 		asin = item.prod_asin
@@ -44,7 +44,6 @@ def reply():
 		client = request.form['From']
 		#CHANGE client !!! BODY INTO STRING....!!!
 		client = client.encode("utf-8", "ignore")
-
 		#this return statement is needed to send response text - and also returns on web app
 		return str(resp)
 
@@ -52,16 +51,18 @@ def reply():
 	#TEXT THEM A LINK TO FLASK WEB APP, DIFFERENT ENDPOINT ENTER CREDIT CARD
 		
 		
-	elif state == 'purchase':
+	elif state == 'purchase' and message_body == ('yes' or 'Yes' or 'YES'):
 		#buy product
 		state = 'confirmation'
 		#import request_amazon. call function where asin = item.prod_asin
 		request_amazon.buy(asin)
+		result = " This is a confirmation message. Your amazon pack will be on its way shortly!"
 		asin = None
 
 	elif state == 'confirmation':
 		#did all go well?
-		test_sms.send(client)
+		result = 'Sorry, either you did not say yes, or our script didnt work'
+		test_sms.send(client,result)
 		client = None
 		
 
