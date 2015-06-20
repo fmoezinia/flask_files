@@ -40,8 +40,6 @@ def reply():
 		resp = twilio.twiml.Response()
 		resp.message(txtresp)
 		asin = item.prod_asin()
-		print asin
-		print type(asin)
 		state = 'purchase'
 		client = request.form['From']
 		#CHANGE client !!! BODY INTO STRING....!!!
@@ -60,13 +58,14 @@ def reply():
 		request_amazon.buy(asin)
 		result = " This is a confirmation message. Your amazon pack will be on its way shortly!"
 		asin = None
+		return 'hi'
 
 	elif state == 'confirmation':
 		#did all go well?
 		result = 'Sorry, either you did not say yes, or our script didnt work'
 		test_sms.send(client,result)
 		client = None
-		
+		return 'hi'
 
 
 if __name__ == "__main__":
