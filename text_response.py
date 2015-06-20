@@ -67,6 +67,10 @@ def reply():
 			print 'blah 6'
 			state = 'suggestion'
 			result = 'We are sorry that you do not want to purchase this item. Please search for a different product!'
+			print client
+			print result
+			print type(client)
+			print type(result)
 			test_sms.send(client,result)
 			client = None
 			result = None
