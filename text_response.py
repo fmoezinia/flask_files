@@ -36,7 +36,7 @@ def reply():
 	#print message_body
 		item = Item(message_body)
 
-		txtresp = "We found this title {0} with this price {1} (and image), respond yes if that is ok".format(item.prod_item(), item.prod_price())
+		txtresp = "We found this product : {0} at: {2}{1} (and image). Respond 'yes' if you would like to purchase this item".format(item.prod_item(), item.prod_price()[0], item.prod_price()[1])
 		resp = twilio.twiml.Response()
 		resp.message(txtresp)
 		asin = item.prod_asin()
@@ -47,24 +47,29 @@ def reply():
 		#this return statement is needed to send response text - and also returns on web app
 		return str(resp)
 
-	#NEED PURCHASE COFNRIMATION TOO
-	#TEXT THEM A LINK TO FLASK WEB APP, DIFFERENT ENDPOINT ENTER CREDIT CARD
+	
+	#TEXT THEM A LINK TO FLASK WEB APP, DIFFERENT ENDPOINT ENTER CREDIT CARD (need variables in request amazon for deatials and biling creds)
 		
 		
-	elif state == 'purchase' and message_body == ('yes' or 'Yes' or 'YES'):
-		#buy product
-		state = 'confirmation'
-		#import request_amazon. call function where asin = item.prod_asin()
-		request_amazon.buy(asin)
-		result = " This is a confirmation message. Your amazon pack will be on its way shortly!"
-		asin = None
-		return 'hi'
+	elif state == 'purchase':
+		if message_body == ('yes' or 'Yes' or 'YES'):
+			#buy product
+			state = 'confirmation'
+			#import request_amazon. call function where asin = item.prod_asin()
+			result = request_amazon.buy(asin)
+			asin = None
+			#MUST RETURN SOMETING?
+			return 'hi'
+		else:
+			state = 'confirmation'
+			result = 'We are sorry that you do not want to purchase this item. Please'
 
 	elif state == 'confirmation':
 		#did all go well?
-		result = 'Sorry, either you did not say yes, or our script didnt work'
 		test_sms.send(client,result)
 		client = None
+		state = 'suggestion'
+		#MUST RETURN SOMETING?		
 		return 'hi'
 
 
