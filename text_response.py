@@ -33,6 +33,8 @@ def reply():
 #unicode to string
 	message_body = request.form['Body']
 	message_body = message_body.encode("utf-8", "ignore")
+	print message_body
+	print type(message_body)
 	customer = request.form['From']
 	customer = customer.encode("utf-8", "ignore")
 
