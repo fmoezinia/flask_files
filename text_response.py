@@ -16,7 +16,7 @@ asin = None
 # 3 states: suggestion, purchase, and confirmation
 state = 'suggestion'
 client = None
-
+result = None
 
 
 @app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
@@ -27,9 +27,12 @@ def reply():
 	message_body = request.form['Body']
 	#CHANGE MESSAGE BODY INTO STRING....!!!
 	message_body = message_body.encode("utf-8", "ignore")
+
 	global state
 	global asin
 	global client
+	global result
+
 	print 'blah 1'
 	if state == 'suggestion':
 
@@ -63,8 +66,11 @@ def reply():
 			return 'hi'
 		else:
 			print 'blah 6'
-			state = 'confirmation'
-			result = 'We are sorry that you do not want to purchase this item. Please'
+			state = 'suggestion'
+			result = 'We are sorry that you do not want to purchase this item. Please search for a different product!'
+			test_sms.send(client,result)
+			client = None
+			result = None
 			return 'hi'
 
 	elif state == 'confirmation':
@@ -73,6 +79,7 @@ def reply():
 		test_sms.send(client,result)
 		client = None
 		state = 'suggestion'
+		result = None
 		#MUST RETURN SOMETING?		
 		return 'hi'
 
