@@ -6,6 +6,7 @@ from flask import Flask, request, redirect
 import twilio.twiml
 
 
+
 #can now use item classes from product search.
 from product_search import Item
  
@@ -15,7 +16,7 @@ app = Flask(__name__)
 asin = None
 # 3 states: suggestion, purchase, and confirmation
 state = 'suggestion'
-client = None
+customer = None
 result = None
 
 
@@ -25,15 +26,15 @@ def reply():
 	
 	global state
 	global asin
-	global client
+	global customer
 	global result
 	global message_body
 
 #unicode to string
 	message_body = request.form['Body']
 	message_body = message_body.encode("utf-8", "ignore")
-	client = request.form['From']
-	client = client.encode("utf-8", "ignore")
+	customer = request.form['From']
+	customer = customer.encode("utf-8", "ignore")
 
 	print 'blah 1'
 	if state == 'suggestion':
@@ -69,16 +70,16 @@ def reply():
 			result = 'We are sorry that you do not want to purchase this item. Please search for a different product!'
 
 
-			test_sms.send(client,result)
-			client = None
+			test_sms.send(customer, result)
+			customer = None
 			result = None
 			return 'hi'
 
 	elif state == 'confirmation':
 		#did all go well?
 		print 'blah 5'
-		test_sms.send(client,result)
-		client = None
+		test_sms.send(customer,result)
+		customer = None
 		state = 'suggestion'
 		result = None
 		#MUST RETURN SOMETING?		
