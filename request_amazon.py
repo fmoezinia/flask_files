@@ -17,10 +17,9 @@ def buy(asin):
 
 	if requests.post(url, json = info).status_code == 200:
 		post_api_request = requests.post(url, json = info)
-		return "This is a confirmation message. Your amazon pack will be on its way shortly!"
 	else:
 		print post_api_request.raise_for_status()
-		return "Unfortunately we were not able to process your order at this time. Please try again and check all your details!"
+		raise Exception("Order not processed")
 
 
 

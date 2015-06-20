@@ -33,8 +33,6 @@ def reply():
 #unicode to string
 	message_body = request.form['Body']
 	message_body = message_body.encode("utf-8", "ignore")
-	print message_body
-	print type(message_body)
 	customer = request.form['From']
 	customer = customer.encode("utf-8", "ignore")
 
@@ -57,12 +55,13 @@ def reply():
 		
 		
 	elif state == 'purchase':
+		#FIX TO MAKE ALL YESES WITH LOWERCASE ETC
 		if message_body == 'Yes':
 			#buy product
 			print 'blah 3'
 			state = 'confirmation'
-			#import request_amazon. call function where asin = item.prod_asin()
-			result = request_amazon.buy(asin)
+			print asin
+			request_amazon.buy(asin)
 			asin = None
 			#MUST RETURN SOMETING?
 			return 'hi'
