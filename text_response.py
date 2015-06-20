@@ -51,7 +51,7 @@ def reply():
 		
 		
 	elif state == 'purchase':
-	print 'blah 2'
+		print 'blah 2'
 		if message_body == ('yes' or 'Yes' or 'YES'):
 			#buy product
 			print 'blah 3'
@@ -62,9 +62,10 @@ def reply():
 			#MUST RETURN SOMETING?
 			return 'hi'
 		else:
-			print 'blah 3'
+			print 'blah 6'
 			state = 'confirmation'
 			result = 'We are sorry that you do not want to purchase this item. Please'
+			return 'hi'
 
 	elif state == 'confirmation':
 		#did all go well?
