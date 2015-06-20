@@ -30,12 +30,12 @@ def reply():
 	global state
 	global asin
 	global client
-
+	print 'blah 1'
 	if state == 'suggestion':
 
 	#print message_body
 		item = Item(message_body)
-
+		print 'blah 0'
 		txtresp = "We found this product : {0}. The price will be: {2} {1} (Can add image later). Respond 'yes' or 'Yes' if you would like to purchase this item".format(item.prod_item(), item.prod_price()[0], item.prod_price()[1])
 		resp = twilio.twiml.Response()
 		resp.message(txtresp)
@@ -46,14 +46,15 @@ def reply():
 		client = client.encode("utf-8", "ignore")
 		#this return statement is needed to send response text - and also returns on web app
 		return str(resp)
-
 	
 	#TEXT THEM A LINK TO FLASK WEB APP, DIFFERENT ENDPOINT ENTER CREDIT CARD (need variables in request amazon for deatials and biling creds)
 		
 		
 	elif state == 'purchase':
+	print 'blah 2'
 		if message_body == ('yes' or 'Yes' or 'YES'):
 			#buy product
+			print 'blah 3'
 			state = 'confirmation'
 			#import request_amazon. call function where asin = item.prod_asin()
 			result = request_amazon.buy(asin)
@@ -61,11 +62,13 @@ def reply():
 			#MUST RETURN SOMETING?
 			return 'hi'
 		else:
+			print 'blah 3'
 			state = 'confirmation'
 			result = 'We are sorry that you do not want to purchase this item. Please'
 
 	elif state == 'confirmation':
 		#did all go well?
+		print 'blah 5'
 		test_sms.send(client,result)
 		client = None
 		state = 'suggestion'
