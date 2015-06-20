@@ -1,6 +1,6 @@
 #this script responds to texts, and takes message body (prints to webpage)
 import test_sms
-import request_amazon
+#import request_amazon
 import unicodedata
 from amazon.api import AmazonAPI
 #import test_sms
@@ -64,9 +64,6 @@ def reply():
 		test_sms.send(client)
 		client = None
 		
-
-
-	
 
 
 if __name__ == "__main__":
