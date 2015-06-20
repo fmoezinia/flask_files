@@ -36,10 +36,10 @@ def reply():
 	#print message_body
 		item = Item(message_body)
 
-		txtresp = "We found this title {0} with this price {1} (and image), respond yes if that is ok".format(item.prod_item(), item.prod_price)
+		txtresp = "We found this title {0} with this price {1} (and image), respond yes if that is ok".format(item.prod_item(), item.prod_price())
 		resp = twilio.twiml.Response()
 		resp.message(txtresp)
-		asin = item.prod_asin
+		asin = item.prod_asin()
 		state = 'purchase'
 		client = request.form['From']
 		#CHANGE client !!! BODY INTO STRING....!!!
@@ -54,7 +54,7 @@ def reply():
 	elif state == 'purchase' and message_body == ('yes' or 'Yes' or 'YES'):
 		#buy product
 		state = 'confirmation'
-		#import request_amazon. call function where asin = item.prod_asin
+		#import request_amazon. call function where asin = item.prod_asin()
 		request_amazon.buy(asin)
 		result = " This is a confirmation message. Your amazon pack will be on its way shortly!"
 		asin = None
