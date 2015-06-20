@@ -27,12 +27,12 @@ def reply():
 	message_body = request.form['Body']
 	#CHANGE MESSAGE BODY INTO STRING....!!!
 	message_body = message_body.encode("utf-8", "ignore")
-	
+	global state
+	global asin
+	global client
 
 	if state == 'suggestion':
-		global asin
-		global state
-		global client
+
 	#print message_body
 		item = Item(message_body)
 
@@ -53,12 +53,6 @@ def reply():
 		
 		
 	elif state == 'purchase':
-
-		global asin
-		global state
-		global client
-
-
 		#buy product
 		state = 'confirmation'
 		#import request_amazon. call function where asin = item.prod_asin
@@ -66,10 +60,6 @@ def reply():
 		asin = None
 
 	elif state == 'confirmation':
-		global asin
-		global state
-		global client
-		
 		#did all go well?
 		test_sms.send(client)
 		client = None
