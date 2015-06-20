@@ -70,7 +70,7 @@ def reply():
 			result = 'We are sorry that you do not want to purchase this item. Please search for a different product!'
 
 
-			test_sms.send(customer, result)
+			test_sms.send(result, customer)
 			customer = None
 			result = None
 			return 'hi'
