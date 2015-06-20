@@ -45,7 +45,7 @@ def reply():
 		txtresp = "We found this product : {0}. The price will be: {2} {1} (Can add image later). Respond 'yes' or 'Yes' if you would like to purchase this item".format(item.prod_item(), item.prod_price()[0], item.prod_price()[1])
 		resp = twilio.twiml.Response()
 		resp.message(txtresp)
-		asin = item.prod_asin()
+		asin = str(item.prod_asin())
 		state = 'purchase'
 		
 		#this return statement is needed to send response text - and also returns on web app
@@ -60,17 +60,15 @@ def reply():
 			#buy product
 			print 'blah 3'
 			state = 'confirmation'
-			print asin
 			request_amazon.buy(asin)
 			asin = None
+			result = 'Your order has been processed and is on its way!'
 			#MUST RETURN SOMETING?
 			return 'hi'
 		else:
 			print 'blah 6'
 			state = 'suggestion'
 			result = 'We are sorry that you do not want to purchase this item. Please search for a different product!'
-
-
 			test_sms.send(result, customer)
 			customer = None
 			result = None
