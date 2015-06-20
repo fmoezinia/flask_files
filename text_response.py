@@ -1,8 +1,7 @@
 #this script responds to texts, and takes message body (prints to webpage)
 import test_sms
-#import request_amazon
+import request_amazon
 import unicodedata
-#import test_sms
 from flask import Flask, request, redirect
 import twilio.twiml
 

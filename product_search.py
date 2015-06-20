@@ -45,7 +45,7 @@ class Item(object):
 		return found_product_price
 
 
-#product = 'uramium'
+
 #customer_product = Item('uranium')
 #customer_product = Item(product)
 
