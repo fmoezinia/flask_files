@@ -41,10 +41,13 @@ def buy(asin):
 		print post_api_request
 		print 'blah 1'
 		print post_api_request.text
+		return 'Your order has been processed and is on its way!'
 	else:
 		print 'error'
 		print post_api_request.raise_for_status()
+		return 'Your order has not processed'
 		raise Exception("Order not processed")
+
 
 
 

@@ -1,4 +1,6 @@
 #this script responds to texts, and takes message body (prints to webpage)
+
+#THIS SCRIPT CONTROLS EVERYTHING - MAIN FILE WHICH RESPONDS AND TEXTS TO CUSOTMERS
 import test_sms
 import request_amazon
 import unicodedata
@@ -59,12 +61,11 @@ def reply():
 		if message_body == 'Yes':
 			#buy product
 			print 'blah 3'
-			state = 'confirmation'
-			print asin
-			print type(asin)
 			request_amazon.buy(asin)
 			asin = None
-			result = 'Your order has been processed and is on its way!'
+			#whether it went through or not is result
+			result = request_amazon.buy(asin)
+			state = 'confirmation'
 			#MUST RETURN SOMETING?
 			return 'hi'
 		else:
@@ -79,7 +80,7 @@ def reply():
 	elif state == 'confirmation':
 		#did all go well?
 		print 'blah 5'
-		test_sms.send(customer,result)
+		test_sms.send(result,customer)
 		customer = None
 		state = 'suggestion'
 		result = None
