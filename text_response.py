@@ -68,6 +68,15 @@ def reply():
 			state = 'confirmation'
 			#MUST RETURN SOMETING?
 			return 'hi'
+			if state == 'confirmation':
+				#did all go well?
+				print 'blah 5'
+				test_sms.send(result,customer)
+				customer = None
+				state = 'suggestion'
+				result = None
+				#MUST RETURN SOMETING?		
+				return 'hi'
 		else:
 			print 'blah 6'
 			state = 'suggestion'
@@ -77,15 +86,6 @@ def reply():
 			result = None
 			return 'hi'
 
-	elif state == 'confirmation':
-		#did all go well?
-		print 'blah 5'
-		test_sms.send(result,customer)
-		customer = None
-		state = 'suggestion'
-		result = None
-		#MUST RETURN SOMETING?		
-		return 'hi'
 
 
 if __name__ == "__main__":

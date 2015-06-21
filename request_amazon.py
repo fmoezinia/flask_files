@@ -39,7 +39,7 @@ def buy(asin):
 		post_api_request = requests.post(url, data = json.dumps(info))
 		post_api_request.json()
 		print post_api_request
-		print 'blah 1'
+		print 'burpee 1'
 		print post_api_request.text
 		return 'Your order has been processed and is on its way!'
 	else:
@@ -47,7 +47,6 @@ def buy(asin):
 		print post_api_request.raise_for_status()
 		return 'Your order has not processed'
 		raise Exception("Order not processed")
-
 
 
 
