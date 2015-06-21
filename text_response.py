@@ -61,22 +61,18 @@ def reply():
 		if message_body == 'Yes':
 			#buy product
 			print 'blah 3'
-			request_amazon.buy(asin)
-			asin = None
 			#whether it went through or not is result
 			result = request_amazon.buy(asin)
-			state = 'confirmation'
+			asin = None
 			#MUST RETURN SOMETING?
+			#did all go well?
+			print 'blah 5'
+			test_sms.send(result,customer)
+			customer = None
+			result = None
+			state = 'suggestion'
+			#MUST RETURN SOMETING?		
 			return 'hi'
-			if state == 'confirmation':
-				#did all go well?
-				print 'blah 5'
-				test_sms.send(result,customer)
-				customer = None
-				state = 'suggestion'
-				result = None
-				#MUST RETURN SOMETING?		
-				return 'hi'
 		else:
 			print 'blah 6'
 			state = 'suggestion'
