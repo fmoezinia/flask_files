@@ -38,13 +38,11 @@ def reply():
 	customer = request.form['From']
 	customer = customer.encode("utf-8", "ignore")
 
-	print 'blah 1'
 	if state == 'suggestion':
 
 	#print message_body
 		item = Item(message_body)
-		print 'blah 0'
-		txtresp = "We found this product : {0}. The price will be: {2} {1} (Can add image later). Respond 'yes' or 'Yes' if you would like to purchase this item, and 'no' if you dont quite fancy it!".format(item.prod_item(), item.prod_price()[0], item.prod_price()[1])
+		txtresp = "We found this product : {0}. The price will be: {2} {1} (Can add image later). Respond 'Yes' if you would like to purchase this item, and 'No' if you dont quite fancy it!".format(item.prod_item(), item.prod_price()[0], item.prod_price()[1])
 		resp = twilio.twiml.Response()
 		resp.message(txtresp)
 		asin = str(item.prod_asin())
@@ -58,15 +56,13 @@ def reply():
 		
 	elif state == 'purchase':
 		#FIX TO MAKE ALL YESES WITH LOWERCASE ETC
-		if message_body == 'Yes':
+		if message_body == 'Yes' or 'yes' or 'YES':
 			#buy product
-			print 'blah 3'
 			#whether it went through or not is result
 			result = request_amazon.buy(asin)
 			asin = None
 			#MUST RETURN SOMETING?
 			#did all go well?
-			print 'blah 5'
 			test_sms.send(result,customer)
 			customer = None
 			result = None
@@ -74,7 +70,6 @@ def reply():
 			#MUST RETURN SOMETING?		
 			return 'hi'
 		else:
-			print 'blah 6'
 			state = 'suggestion'
 			result = 'We are sorry that you do not want to purchase this item. Please search for a different product!'
 			test_sms.send(result, customer)

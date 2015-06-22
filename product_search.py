@@ -42,11 +42,12 @@ class Item(object):
 		product_asin = self.prod_asin()
 		the_product = self.amazon.lookup(ItemId='' + product_asin + '')
 		found_product_price = the_product.price_and_currency
+		print the_product.image
 		return found_product_price
 
 
 
-#customer_product = Item('uranium')
+customer_product = Item('uranium')
 #customer_product = Item(product)
 
 #product_name = customer_product.prod_item()
