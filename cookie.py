@@ -16,7 +16,7 @@ callers = {
     "+14158675311": "Virgil",
 }
  
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/my_twilio_endpoint", methods=['GET', 'POST'])
 def hello_monkey():
     """Respond with the number of text messages sent between two parties."""
  
@@ -41,4 +41,4 @@ def hello_monkey():
     return str(resp)
  
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug = True, port=80, host = '0.0.0.0')
